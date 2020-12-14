@@ -12,8 +12,8 @@ let Gallery = (props) => {
 
     return (
         <div className="container">
-            <PhotoList photos={photos} toggleLiked={toggleLiked} />
             <MorePhoto page={page} itemsFetchData={itemsFetchData} />
+            <PhotoList photos={photos} toggleLiked={toggleLiked} itemsFetchData={itemsFetchData} page={page} />
         </div>
     );
 }

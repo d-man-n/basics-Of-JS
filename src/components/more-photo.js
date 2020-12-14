@@ -11,6 +11,7 @@ const MorePhoto = ({page, itemsFetchData}) => {
             >
             Показать еще
             </button>
+            <p>Эта кнопка больше не нужна, но удалить жаль ))</p>
         </div>
     );
 }
