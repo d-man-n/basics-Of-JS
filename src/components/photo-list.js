@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Masonry from 'react-masonry-css';
 import InfiniteScroll from 'react-infinite-scroller';
+import LazyLoad from 'react-lazy-load';
 
 import BtnLike from './btn-like';
 import DescriptionPhoto from './description-photo';
@@ -39,11 +40,13 @@ const PhotoList = (props) => {
                                     publishDate = {el.publishDate}
                                 />
                                 <Link to={{pathname: `/photo/${el.id}`}} >
-                                    <img 
-                                        src={el.url} 
-                                        className="photo-item__photo"
-                                        alt={el.alt_description}
-                                    />
+                                    <LazyLoad>
+                                        <img 
+                                            src={el.url} 
+                                            className="photo-item__photo"
+                                            alt={el.alt_description}
+                                        />                                        
+                                    </LazyLoad>
                                 </Link>
                                 <BtnLike 
                                     id = {el.id}
