@@ -34,6 +34,8 @@ const photos = (state = [], action) => {
                     ...state,
                     {
                         id: action.items[i].id, 
+                        width: action.items[i].width,
+                        height: action.items[i].height,
                         url: action.items[i].urls.small, 
                         bigUrl: action.items[i].urls.full, 
                         alt_description: action.items[i].alt_description,
@@ -62,6 +64,8 @@ const photos = (state = [], action) => {
                     }
                     return {
                         id: el.id, 
+                        width: el.width,
+                        height: el.height,
                         url: el.url, 
                         bigUrl: el.bigUrl, 
                         alt_description: el.alt_description,

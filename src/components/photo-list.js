@@ -3,24 +3,27 @@ import { Link } from 'react-router-dom';
 
 import Masonry from 'react-masonry-css';
 import InfiniteScroll from 'react-infinite-scroller';
-import LazyLoad from 'react-lazy-load';
+
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import Logo from '../../img/logo.png';
 
 import BtnLike from './btn-like';
 import DescriptionPhoto from './description-photo';
 
 const PhotoList = (props) => {
-    const {photos, toggleLiked, page, itemsFetchData} = props;
+    let {photos, toggleLiked, page, itemsFetchData} = props;
     const breakpointColumnsObj = {
         default: 4,
-            1100: 3,
-            700: 2,
-            500: 1
+            1350: 3,
+            1100: 2,
+            700: 1
         };
 
     return (
         <div className="photo-list">
             <InfiniteScroll
-                loadMore={() => itemsFetchData(page)}
+                loadMore={() => itemsFetchData(++page)}
                 hasMore={true}
                 loader={<h2>Loading...</h2>}
             >
@@ -40,13 +43,17 @@ const PhotoList = (props) => {
                                     publishDate = {el.publishDate}
                                 />
                                 <Link to={{pathname: `/photo/${el.id}`}} >
-                                    <LazyLoad>
-                                        <img 
+                                        <LazyLoadImage 
+                                            effect="blur"
                                             src={el.url} 
                                             className="photo-item__photo"
                                             alt={el.alt_description}
-                                        />                                        
-                                    </LazyLoad>
+                                            key={el.id}
+                                            placeholder={<h1>Loading....</h1>}
+                                            width="276"
+                                            height={(el.height*276)/el.width}
+                                            placeholderSrc={Logo}
+                                        />   
                                 </Link>
                                 <BtnLike 
                                     id = {el.id}
