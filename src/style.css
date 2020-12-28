@@ -255,6 +255,12 @@ img {
     height: 73vh;
 }
 
+.notauth {
+    background-image: url(../img/bg11.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .notauth__arrow {
     position: absolute;
     top: 10px;
@@ -274,10 +280,33 @@ img {
     }
   }
 
+  .header__info_notauth {
+      color: #ffffff;
+      font-size: 20px;
+      margin-left: auto;
+      margin-top: 30px;
+  }
+
 .notauth__header,.auth__header {
     color: #343434;
     font-size: 30px;
     text-align: center;
+}
+
+.notauth__auth_btn {
+    color: #ffffff;
+    background-color: #343434;
+    border-radius: 30px;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 30px;
+    box-shadow: 2px 2px 15px #343434;
+    box-shadow: 2px 2px 45px #ff0000;
+    transition: transform .3s ease-in-out;
+}
+
+.notauth__auth_btn:hover {
+    transform: scale(1.1);
 }
 
 .footer {
@@ -301,6 +330,10 @@ img {
         padding-left: 20px;
         padding-right: 20px;
     }
+
+    .notauth {
+        background-image: url(../img/bg22.png);
+    }
 }
 
 @media (max-width: 700px) {
@@ -315,6 +348,10 @@ img {
         margin-top: 5px;
         text-align: center;
     }
+
+    .notauth {
+        background-image: url(../img/bg33.png);
+    }
 }
 
 @media (max-width: 400px) {
@@ -324,5 +361,9 @@ img {
 
     .header__info_text {
         font-size: 14px;
+    }
+
+    .notauth {
+        background-image: url(../img/bg44.png);
     }
 }

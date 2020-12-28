@@ -15,10 +15,11 @@ const Header = (props) => {
                     alt="Лого"
                 />
                 <div className="header__info">
-                    <h1 className="header__info_h1">Фотогалерея Unsplash</h1>
-                    <p className="header__info_text">с использованием React + Redux</p>
+                    <h1 className="header__info_h1">Фотогалерея</h1>
+                    <p className="header__info_text">От случайных пользователей</p>
                 </div>
-                { isAuth() ? ( <UserAuth user={user} /> ) : ( <Link to={{pathname: "/auth"}} className="header__info_auth">Авторизоваться</Link> ) }
+                {/* { isAuth() ? ( <UserAuth user={user} /> ) : ( <Link to={{pathname: "/auth"}} className="header__info_auth">Авторизоваться</Link> ) } */}
+                { isAuth() ? ( <UserAuth user={user} /> ) : ( <p class="header__info_notauth">Вы не авторизованы</p> ) }
             </div>
         </div>
     );
