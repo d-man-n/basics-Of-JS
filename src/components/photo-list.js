@@ -11,6 +11,7 @@ import Logo from '../../img/logo.png';
 import BtnLike from './btn-like';
 import DescriptionPhoto from './description-photo';
 
+
 const PhotoList = (props) => {
     let {photos, toggleLiked, page, itemsFetchData} = props;
     const breakpointColumnsObj = {
@@ -53,8 +54,10 @@ const PhotoList = (props) => {
                                             width="276"
                                             height={(el.height*276)/el.width}
                                             placeholderSrc={Logo}
-                                        />   
+                                        >
+                                        </LazyLoadImage>
                                 </Link>
+
                                 <BtnLike 
                                     id = {el.id}
                                     likes = {el.likes}

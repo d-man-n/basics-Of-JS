@@ -5,6 +5,10 @@ import BtnLike from '../components/btn-like';
 import DescriptionPhoto from '../components/description-photo';
 import {toggleLiked} from '../actions';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import Logo from '../../img/logo.png';
+
  
 let Photo = (props) => {
     const { match, photoStore, toggleLiked } = props;
@@ -16,27 +20,41 @@ let Photo = (props) => {
     const photoInf = photos.find(el => el.id === photoId);
 
     return (
-        <div className="container big-photo">
-            <div className="big-photo__control">
-                <DescriptionPhoto
-                    userUrl = {photoInf.userUrl}
-                    userImage = {photoInf.userImage}
-                    userName = {photoInf.userName}
-                    publishDate = {photoInf.publishDate}
-                />
-                <BtnLike 
-                    id = {photoInf.id}
-                    likes = {photoInf.likes}
-                    liked_by_user = {photoInf.liked_by_user}
-                    toggleLiked = {toggleLiked.bind(this, photoInf.id)}
-                />
+        <div className="big-photo__bg">
+            <div className="container big-photo">
+                <div className="big-photo__control">
+                    <DescriptionPhoto
+                        userUrl = {photoInf.userUrl}
+                        userImage = {photoInf.userImage}
+                        userName = {photoInf.userName}
+                        publishDate = {photoInf.publishDate}
+                    />
+                    <BtnLike 
+                        id = {photoInf.id}
+                        likes = {photoInf.likes}
+                        liked_by_user = {photoInf.liked_by_user}
+                        toggleLiked = {toggleLiked.bind(this, photoInf.id)}
+                    />
+                </div>
+                <LazyLoadImage 
+                    effect="blur"
+                    src={photoInf.bigUrl} 
+                    className="big-photo__img"
+                    alt={photoInf.alt_description}
+                    key={photoInf.id}
+                    placeholder={<h1>Loading....</h1>}
+                    height="600"
+                    width={(photoInf.width*600)/photoInf.height}
+                    placeholderSrc={Logo}
+                >
+                </LazyLoadImage>
+                {/* <img 
+                    src={photoInf.bigUrl} 
+                    alt={photoInf.alt_description}
+                    className="big-photo__img"
+                /> */}
+                <Link to="/" className="big-photo__back">Назад</Link>
             </div>
-            <img 
-                src={photoInf.bigUrl} 
-                alt={photoInf.alt_description}
-                className="big-photo__img"
-            />
-            <Link to="/" className="big-photo__back">Назад</Link>
         </div>
     );
 }

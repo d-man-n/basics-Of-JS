@@ -19,7 +19,8 @@ let App = (props) => {
             <Header user={user} />
             {isAuth() ? ( <Route exact path="/" component={Gallery} /> )  : ( <Route exact path="/" component={notAuth} /> ) }
             <Route path="/auth" component={Auth} />
-            <Route exact path="/photo/:photoId" component={Photo} />
+            <Route path="/photo" component={Gallery} />
+            <Route path="/photo/:photoId" component={Photo} />
         </BrowserRouter>
     );
 }

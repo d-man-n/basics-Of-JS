@@ -29,16 +29,17 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "history": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-fancybox": "^0.2.5",
     "react-infinite-scroller": "^1.2.4",
-    "react-lazy-load": "^3.1.13",
     "react-lazy-load-image-component": "^1.5.1",
-    "react-lazyload": "^3.1.0",
     "react-masonry-component": "^6.2.1",
     "react-masonry-css": "^1.0.14",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
+    "react-router-modal": "^1.5.2",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "unsplash-js": "^6.3.0"
