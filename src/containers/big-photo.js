@@ -10,7 +10,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import Logo from '../../img/logo.png';
 
  
-let Photo = (props) => {
+const PhotoComponent = (props) => {
     const { match, photoStore, toggleLiked } = props;
     const { photos } = photoStore;
     const {
@@ -68,9 +68,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-Photo = connect(
+const Photo = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Photo);
+)(PhotoComponent);
 
 export default Photo;

@@ -10,7 +10,7 @@ import Photo from './big-photo';
 import Auth from '../components/auth';
 import notAuth from '../components/not-auth';
 
-let App = (props) => {
+const AppComponent = (props) => {
 
     const {user} = props;
 
@@ -32,9 +32,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-App = connect(
+const App = connect(
     mapStateToProps
-)(App);
+)(AppComponent);
 
 
 export default App;

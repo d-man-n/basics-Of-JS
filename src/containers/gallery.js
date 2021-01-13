@@ -6,7 +6,7 @@ import MorePhoto from '../components/more-photo';
 
 import {itemsFetchData, toggleLiked} from '../actions';
 
-let Gallery = (props) => {
+const GalleryComponent = (props) => {
     const {photoStore, itemsFetchData, toggleLiked} = props;
     const {photos, page} = photoStore;
 
@@ -32,9 +32,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-Gallery = connect(
+const Gallery = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Gallery);
+)(GalleryComponent);
 
 export default Gallery;
