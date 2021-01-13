@@ -1,31 +1,5 @@
 import { unsplash } from '../components/auth';
 
-const page = (state = 0, action) => {
-    switch(action.type) {
-        case 'MORE_PHOTO':
-            return ++state;
-
-        default:
-            return state;
-    }
-  } 
-
-const user = (state = {}, action) => {
-switch(action.type) {
-    case 'CURRENT_USER':
-        state = {
-            id: action.user.id,
-            userName: action.user.name, 
-            userUrl: action.user.links.html,
-            userImage: action.user.profile_image.small
-        }
-        return state;
-
-    default:
-        return state;
-    }
-} 
-
 const photos = (state = [], action) => {
     switch(action.type) {
         case 'MORE_PHOTO':
@@ -85,12 +59,4 @@ const photos = (state = [], action) => {
     }
 }
 
-const photoState = (state = {}, action) => { 
-    return { 
-        page: page(state.page, action), 
-        photos: photos(state.photos, action), 
-        user: user(state.user, action)
-    } 
-}
-
-export default photoState;
+export default photos;

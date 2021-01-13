@@ -37,7 +37,6 @@ let Auth = (props) => {
     ]);
 
     if (isAuth()) {
-        // if (props.page>0 && props.user.id) {
         if (props.user.id) {
             location.assign(unsplash._callbackUrl.split('auth')[0]);
         }
@@ -56,7 +55,6 @@ let Auth = (props) => {
                 unsplash.auth.setBearerToken(json.access_token);
                 localStorage.setItem('Token', JSON.stringify(json));
                 props.userFetchData();
-                // props.itemsFetchData(1);
                 }
             );
         }

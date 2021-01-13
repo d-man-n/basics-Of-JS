@@ -43,6 +43,12 @@ const PhotoList = (props) => {
                                     userName = {el.userName}
                                     publishDate = {el.publishDate}
                                 />
+                                <BtnLike 
+                                    id = {el.id}
+                                    likes = {el.likes}
+                                    liked_by_user = {el.liked_by_user}
+                                    toggleLiked = {toggleLiked.bind(this, el.id)}
+                                />
                                 <Link to={{pathname: `/photo/${el.id}`}} >
                                         <LazyLoadImage 
                                             effect="blur"
@@ -57,13 +63,6 @@ const PhotoList = (props) => {
                                         >
                                         </LazyLoadImage>
                                 </Link>
-
-                                <BtnLike 
-                                    id = {el.id}
-                                    likes = {el.likes}
-                                    liked_by_user = {el.liked_by_user}
-                                    toggleLiked = {toggleLiked.bind(this, el.id)}
-                                />
                             </div>
                             );
                         })

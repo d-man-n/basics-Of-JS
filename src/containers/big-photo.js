@@ -21,6 +21,7 @@ let Photo = (props) => {
 
     return (
         <div className="big-photo__bg">
+            <Link to="/" className="big-photo__bg_back"></Link>
             <div className="container big-photo">
                 <div className="big-photo__control">
                     <DescriptionPhoto
@@ -29,31 +30,26 @@ let Photo = (props) => {
                         userName = {photoInf.userName}
                         publishDate = {photoInf.publishDate}
                     />
-                    <BtnLike 
-                        id = {photoInf.id}
-                        likes = {photoInf.likes}
-                        liked_by_user = {photoInf.liked_by_user}
-                        toggleLiked = {toggleLiked.bind(this, photoInf.id)}
-                    />
+                    <Link to="/" className="big-photo__back"></Link>
                 </div>
                 <LazyLoadImage 
-                    effect="blur"
+                    // effect="blur"
                     src={photoInf.bigUrl} 
                     className="big-photo__img"
                     alt={photoInf.alt_description}
                     key={photoInf.id}
                     placeholder={<h1>Loading....</h1>}
-                    height="600"
+                    height="580"
                     width={(photoInf.width*600)/photoInf.height}
-                    placeholderSrc={Logo}
+                    placeholderSrc={photoInf.url}
                 >
                 </LazyLoadImage>
-                {/* <img 
-                    src={photoInf.bigUrl} 
-                    alt={photoInf.alt_description}
-                    className="big-photo__img"
-                /> */}
-                <Link to="/" className="big-photo__back">Назад</Link>
+                <BtnLike 
+                    id = {photoInf.id}
+                    likes = {photoInf.likes}
+                    liked_by_user = {photoInf.liked_by_user}
+                    toggleLiked = {toggleLiked.bind(this, photoInf.id)}
+                />
             </div>
         </div>
     );
